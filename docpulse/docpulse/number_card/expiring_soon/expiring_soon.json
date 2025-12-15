@@ -1,0 +1,23 @@
+{
+ "color": "#FACF7A",
+ "creation": "2025-12-15 01:03:51.462507",
+ "currency": "INR",
+ "docstatus": 0,
+ "doctype": "Number Card",
+ "document_type": "Document Tracker List",
+ "filters_json": "[[\"Document Tracker List\", \"docstatus\", \"=\", 1], [\"Document Tracker List\", \"flag_expiring_soon\", \"=\", 1], [\"Document Tracker List\", \"lifecycle_state\", \"=\", \"Current\"]]",
+ "function": "Count",
+ "idx": 0,
+ "is_public": 1,
+ "is_standard": 1,
+ "label": "Expiring Soon",
+ "modified": "2025-12-15 01:03:51.462507",
+ "modified_by": "Administrator",
+ "module": "DocPulse",
+ "name": "Expiring Soon",
+ "owner": "Administrator",
+ "report_function": "Sum",
+ "show_percentage_stats": 1,
+ "stats_time_interval": "Daily",
+ "type": "Document Type"
+}

@@ -1,0 +1,410 @@
+{
+ "actions": [
+  {
+   "action": "docpulse.docpulse.doctype.document_tracker_list.document_tracker_list.renew",
+   "action_type": "Server Action",
+   "group": "Actions",
+   "label": "Renew"
+  },
+  {
+   "action": "docpulse.docpulse.doctype.document_tracker_list.document_tracker_list.mark_renewal_in_progress",
+   "action_type": "Server Action",
+   "group": "Actions",
+   "label": "Mark Renewal In Progress"
+  },
+  {
+   "action": "docpulse.docpulse.doctype.document_tracker_list.document_tracker_list.revert_renewal_status",
+   "action_type": "Server Action",
+   "group": "Actions",
+   "label": "Revert Renewal Status"
+  },
+  {
+   "action": "docpulse.docpulse.doctype.document_tracker_list.document_tracker_list.revoke_or_cancel",
+   "action_type": "Server Action",
+   "group": "Actions",
+   "label": "Revoke/Cancel"
+  }
+ ],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2025-01-27 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "is_submittable": 1,
+ "field_order": [
+  "naming_series",
+  "core_identification_section",
+  "document_name",
+  "document_reference_no",
+  "document_category",
+  "authority",
+  "column_break_company",
+  "company",
+  "business_unit",
+  "department",
+  "owner_person",
+  "counterparty_section",
+  "counterparty_type",
+  "counterparty",
+  "validity_renewal_section",
+  "issue_date",
+  "is_expiry_based",
+  "expiry_date",
+  "is_renewable",
+  "renewal_lead_time_type",
+  "renewal_lead_time_days",
+  "custom_remind_from_date",
+  "remind_from_date",
+  "lifecycle_section",
+  "lifecycle_state",
+  "replaces_document",
+  "renewed_by_document",
+  "renewal_count",
+  "status_section",
+  "status",
+  "amended_from",
+  "system_computed_section",
+  "validity_remaining_days",
+  "flag_expiring_soon",
+  "flag_overdue",
+  "attachments_section",
+  "primary_document",
+  "supplementary_documents"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "DOC-TRACK-.YYYY.-",
+   "reqd": 1
+  },
+  {
+   "fieldname": "core_identification_section",
+   "fieldtype": "Section Break",
+   "label": "Core Identification"
+  },
+  {
+   "fieldname": "document_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Document Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "document_reference_no",
+   "fieldtype": "Data",
+   "in_standard_filter": 1,
+   "label": "Document Reference No"
+  },
+  {
+   "fieldname": "document_category",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Document Category",
+   "options": "Document Category"
+  },
+  {
+   "fieldname": "authority",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Authority",
+   "options": "Document Authority"
+  },
+  {
+   "fieldname": "column_break_company",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "business_unit",
+   "fieldtype": "Data",
+   "label": "Business Unit"
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "label": "Department",
+   "options": "Department"
+  },
+  {
+   "fieldname": "owner_person",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Owner Person",
+   "options": "User"
+  },
+  {
+   "fieldname": "counterparty_section",
+   "fieldtype": "Section Break",
+   "label": "Counterparty"
+  },
+  {
+   "fieldname": "counterparty_type",
+   "fieldtype": "Select",
+   "label": "Counterparty Type",
+   "options": "\nSupplier\nCustomer\nLandlord\nOther"
+  },
+  {
+   "fieldname": "counterparty",
+   "fieldtype": "Dynamic Link",
+   "label": "Counterparty",
+   "options": "counterparty_type"
+  },
+  {
+   "fieldname": "validity_renewal_section",
+   "fieldtype": "Section Break",
+   "label": "Validity & Renewal"
+  },
+  {
+   "fieldname": "issue_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Issue Date"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_expiry_based",
+   "fieldtype": "Check",
+   "label": "Is Expiry Based"
+  },
+  {
+   "depends_on": "is_expiry_based",
+   "fieldname": "expiry_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Expiry Date",
+   "mandatory_depends_on": "is_expiry_based"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_renewable",
+   "fieldtype": "Check",
+   "label": "Is Renewable"
+  },
+  {
+   "depends_on": "is_renewable",
+   "fieldname": "renewal_lead_time_type",
+   "fieldtype": "Select",
+   "label": "Renewal Lead Time Type",
+   "options": "1D\n1W\n1M\n3M\nCustom"
+  },
+  {
+   "fieldname": "renewal_lead_time_days",
+   "fieldtype": "Int",
+   "label": "Renewal Lead Time (Days)",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.renewal_lead_time_type==='Custom'",
+   "fieldname": "custom_remind_from_date",
+   "fieldtype": "Date",
+   "label": "Custom Remind From Date"
+  },
+  {
+   "fieldname": "remind_from_date",
+   "fieldtype": "Date",
+   "label": "Remind From Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "lifecycle_section",
+   "fieldtype": "Section Break",
+   "label": "Lifecycle Linking"
+  },
+  {
+   "default": "Current",
+   "fieldname": "lifecycle_state",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Lifecycle State",
+   "options": "Current\nHistorical"
+  },
+  {
+   "fieldname": "replaces_document",
+   "fieldtype": "Link",
+   "label": "Replaces Document",
+   "options": "Document Tracker List"
+  },
+  {
+   "fieldname": "renewed_by_document",
+   "fieldtype": "Link",
+   "label": "Renewed By Document",
+   "options": "Document Tracker List"
+  },
+  {
+   "default": "0",
+   "fieldname": "renewal_count",
+   "fieldtype": "Int",
+   "label": "Renewal Count",
+   "read_only": 1
+  },
+  {
+   "fieldname": "status_section",
+   "fieldtype": "Section Break",
+   "label": "Status"
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Draft\nActive\nActive Soon to Expire\nRenewal In Progress\nExpired\nRenewed\nRevoked\nCancelled"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Document Tracker List",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "system_computed_section",
+   "fieldtype": "Section Break",
+   "label": "System Computed (Read Only)"
+  },
+  {
+   "fieldname": "validity_remaining_days",
+   "fieldtype": "Int",
+   "label": "Validity Remaining (Days)",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "flag_expiring_soon",
+   "fieldtype": "Check",
+   "label": "Flag Expiring Soon",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "flag_overdue",
+   "fieldtype": "Check",
+   "label": "Flag Overdue",
+   "read_only": 1
+  },
+  {
+   "fieldname": "attachments_section",
+   "fieldtype": "Section Break",
+   "label": "Attachments"
+  },
+  {
+   "fieldname": "primary_document",
+   "fieldtype": "Attach",
+   "label": "Primary Document"
+  },
+  {
+   "fieldname": "supplementary_documents",
+   "fieldtype": "Table",
+   "label": "Supplementary Documents",
+   "options": "Document Tracker Attachment"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-01-27 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "DocPulse",
+ "name": "Document Tracker List",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "cancel": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "DocPulse Master Manager",
+   "share": 1,
+   "submit": 1,
+   "cancel": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "DocPulse Manager",
+   "share": 1,
+   "submit": 1,
+   "cancel": 0,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "All"
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [
+  {
+   "title": "Draft",
+   "color": "gray"
+  },
+  {
+   "title": "Active",
+   "color": "green"
+  },
+  {
+   "title": "Active Soon to Expire",
+   "color": "yellow"
+  },
+  {
+   "title": "Renewal In Progress",
+   "color": "orange"
+  },
+  {
+   "title": "Expired",
+   "color": "red"
+  },
+  {
+   "title": "Renewed",
+   "color": "gray"
+  },
+  {
+   "title": "Revoked",
+   "color": "red"
+  },
+  {
+   "title": "Cancelled",
+   "color": "red"
+  }
+ ],
+ "track_changes": 1
+}

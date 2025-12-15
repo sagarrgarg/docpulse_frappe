@@ -83,7 +83,7 @@ app_license = "mit"
 # ------------
 
 # before_install = "docpulse.install.before_install"
-# after_install = "docpulse.install.after_install"
+after_install = "docpulse.setup.after_install"
 
 # Uninstallation
 # ------------
@@ -148,23 +148,23 @@ app_license = "mit"
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
-# 	"all": [
-# 		"docpulse.tasks.all"
-# 	],
-# 	"daily": [
-# 		"docpulse.tasks.daily"
-# 	],
-# 	"hourly": [
-# 		"docpulse.tasks.hourly"
-# 	],
-# 	"weekly": [
-# 		"docpulse.tasks.weekly"
-# 	],
-# 	"monthly": [
-# 		"docpulse.tasks.monthly"
-# 	],
-# }
+scheduler_events = {
+	"cron": {
+		"0 8 * * *": ["docpulse.docpulse.scheduler.daily_renewal_log.create_daily_renewal_logs"]
+	}
+}
+
+# Sync scheduled job from settings after migrate
+after_migrate = ["docpulse.docpulse.doctype.docpulse_settings.docpulse_settings.sync_renewal_log_scheduler"]
+
+# include js in doctype views
+doctype_js = {
+	"Document Tracker List": "public/js/docpulse/doctype/document_tracker_list/document_tracker_list.js?v=4"
+}
+
+doctype_list_js = {
+	"Document Tracker List": "public/js/docpulse/doctype/document_tracker_list/document_tracker_list_list.js?v=4"
+}
 
 # Testing
 # -------

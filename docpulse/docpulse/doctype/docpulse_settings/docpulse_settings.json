@@ -1,0 +1,94 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2025-01-27 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "cron_settings_section",
+  "cron_schedule",
+  "column_break_cron",
+  "cron_timezone"
+ ],
+ "fields": [
+  {
+   "fieldname": "cron_settings_section",
+   "fieldtype": "Section Break",
+   "label": "Cron Settings"
+  },
+  {
+   "default": "0 8 * * *",
+   "description": "Cron schedule format (e.g., 0 8 * * * for 8 AM daily). Default: 0 8 * * *",
+   "fieldname": "cron_schedule",
+   "fieldtype": "Data",
+   "label": "Cron Schedule",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_cron",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Asia/Kolkata",
+   "description": "Timezone for cron schedule execution",
+   "fieldname": "cron_timezone",
+   "fieldtype": "Data",
+   "label": "Cron Timezone",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2025-01-27 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "DocPulse",
+ "name": "DocPulse Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "DocPulse Master Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 0,
+   "print": 0,
+   "read": 1,
+   "report": 0,
+   "role": "DocPulse Manager",
+   "share": 0,
+   "write": 0
+  },
+  {
+   "read": 1,
+   "role": "All"
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

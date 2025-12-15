@@ -1,0 +1,23 @@
+{
+ "color": "#48BB74",
+ "creation": "2025-12-15 01:03:51.457544",
+ "currency": "INR",
+ "docstatus": 0,
+ "doctype": "Number Card",
+ "document_type": "Document Tracker List",
+ "filters_json": "[[\"Document Tracker List\", \"docstatus\", \"=\", 1], [\"Document Tracker List\", \"status\", \"=\", \"Active\"], [\"Document Tracker List\", \"lifecycle_state\", \"=\", \"Current\"]]",
+ "function": "Count",
+ "idx": 0,
+ "is_public": 1,
+ "is_standard": 1,
+ "label": "Active Documents",
+ "modified": "2025-12-15 01:03:51.457544",
+ "modified_by": "Administrator",
+ "module": "DocPulse",
+ "name": "Active Documents",
+ "owner": "Administrator",
+ "report_function": "Sum",
+ "show_percentage_stats": 1,
+ "stats_time_interval": "Weekly",
+ "type": "Document Type"
+}

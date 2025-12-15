@@ -1,0 +1,121 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2025-01-27 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "document",
+  "document_name",
+  "category",
+  "authority",
+  "issue_date",
+  "expiry_date",
+  "remind_from_date",
+  "days_to_expiry",
+  "severity",
+  "owner_person",
+  "current_status"
+ ],
+ "fields": [
+  {
+   "fieldname": "document",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Document",
+   "options": "Document Tracker List",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "document.document_name",
+   "fieldname": "document_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Document Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "document.document_category",
+   "fieldname": "category",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Category",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "document.authority",
+   "fieldname": "authority",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Authority",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "document.issue_date",
+   "fieldname": "issue_date",
+   "fieldtype": "Date",
+   "label": "Issue Date",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "document.expiry_date",
+   "fieldname": "expiry_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Expiry Date",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "document.remind_from_date",
+   "fieldname": "remind_from_date",
+   "fieldtype": "Date",
+   "label": "Remind From Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "days_to_expiry",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Days To Expiry",
+   "read_only": 1
+  },
+  {
+   "fieldname": "severity",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Severity",
+   "options": "Due Soon\nDue Today\nOverdue",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "document.owner_person",
+   "fieldname": "owner_person",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Owner Person",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "document.status",
+   "fieldname": "current_status",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Current Status",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-01-27 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "DocPulse",
+ "name": "Renewal Pending Items",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

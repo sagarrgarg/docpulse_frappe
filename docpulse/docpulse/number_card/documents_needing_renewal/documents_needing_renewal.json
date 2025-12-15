@@ -1,0 +1,24 @@
+{
+ "color": "#FFA726",
+ "creation": "2025-12-15 01:00:00.000000",
+ "currency": "INR",
+ "docstatus": 0,
+ "doctype": "Number Card",
+ "document_type": "Document Tracker List",
+ "filters_json": "[[\"Document Tracker List\", \"docstatus\", \"=\", 1], [\"Document Tracker List\", \"is_expiry_based\", \"=\", 1], [\"Document Tracker List\", \"is_renewable\", \"=\", 1], [\"Document Tracker List\", \"lifecycle_state\", \"=\", \"Current\"], [\"Document Tracker List\", \"remind_from_date\", \"<=\", \"Today\"], [\"Document Tracker List\", \"status\", \"not in\", [\"Renewed\", \"Revoked\", \"Cancelled\"]]]",
+ "function": "Count",
+ "idx": 0,
+ "is_public": 1,
+ "is_standard": 1,
+ "label": "Documents Needing Renewal",
+ "modified": "2025-12-15 01:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "DocPulse",
+ "name": "Documents Needing Renewal",
+ "owner": "Administrator",
+ "report_function": "Sum",
+ "show_percentage_stats": 1,
+ "stats_time_interval": "Daily",
+ "type": "Document Type"
+}
+

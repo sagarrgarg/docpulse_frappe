@@ -1,0 +1,185 @@
+{
+ "charts": [
+  {
+   "chart_name": "Document Tracker Statuses",
+   "label": "Document Tracker Statuses"
+  }
+ ],
+ "content": "[{\"id\":\"header-main\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Document Status Overview</b></span>\",\"col\":12}},{\"id\":\"chart-statuses\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Document Tracker Statuses\",\"col\":12}},{\"id\":\"spacer-1\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"header-shortcuts\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Quick Actions</b></span>\",\"col\":12}},{\"id\":\"shortcut-tracker\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Document Tracker List\",\"col\":3}},{\"id\":\"shortcut-renewal-log\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Document Tracker Renewal Log\",\"col\":3}},{\"id\":\"shortcut-dashboard\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Dashboard\",\"col\":3}},{\"id\":\"shortcut-settings\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"DocPulse Settings\",\"col\":3}}]",
+ "creation": "2025-12-15 01:00:00.000000",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "file-text",
+ "idx": 0,
+ "indicator_color": "blue",
+ "is_hidden": 0,
+ "label": "DocPulse",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Document Management",
+   "link_count": 3,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Document Tracker List",
+   "link_count": 0,
+   "link_to": "Document Tracker List",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Document Tracker Renewal Log",
+   "link_count": 0,
+   "link_to": "Document Tracker Renewal Log",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Dashboard",
+   "link_count": 0,
+   "link_to": "DocPulse",
+   "link_type": "Dashboard",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Masters",
+   "link_count": 2,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Document Category",
+   "link_count": 0,
+   "link_to": "Document Category",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Document Authority",
+   "link_count": 0,
+   "link_to": "Document Authority",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Settings",
+   "link_count": 1,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "DocPulse Settings",
+   "link_count": 0,
+   "link_to": "DocPulse Settings",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "module": "DocPulse",
+ "modified": "2025-12-15 01:30:00.000000",
+ "modified_by": "Administrator",
+ "name": "DocPulse",
+ "number_cards": [
+  {
+   "number_card_name": "Total Documents"
+  },
+  {
+   "number_card_name": "Active Documents"
+  },
+  {
+   "number_card_name": "Expiring Soon"
+  },
+  {
+   "number_card_name": "Overdue Documents"
+  },
+  {
+   "number_card_name": "Documents Needing Renewal"
+  },
+  {
+   "number_card_name": "Renewal Logs Today"
+  },
+  {
+   "number_card_name": "Renewed Documents"
+  }
+ ],
+ "owner": "Administrator",
+ "public": 1,
+ "roles": [],
+ "sequence_id": 10,
+ "shortcuts": [
+  {
+   "color": "Blue",
+   "format": "{} Active",
+   "label": "Document Tracker List",
+   "link_to": "Document Tracker List",
+   "stats_filter": "{\"status\":\"Active\",\"docstatus\":1}",
+   "type": "DocType"
+  },
+  {
+   "color": "Orange",
+   "format": "{} Expiring Soon",
+   "label": "Expiring Documents",
+   "link_to": "Document Tracker List",
+   "stats_filter": "{\"flag_expiring_soon\":1,\"docstatus\":1}",
+   "type": "DocType"
+  },
+  {
+   "color": "Red",
+   "format": "{} Overdue",
+   "label": "Overdue Documents",
+   "link_to": "Document Tracker List",
+   "stats_filter": "{\"flag_overdue\":1,\"docstatus\":1}",
+   "type": "DocType"
+  },
+  {
+   "label": "Document Tracker Renewal Log",
+   "link_to": "Document Tracker Renewal Log",
+   "type": "DocType"
+  },
+  {
+   "label": "Dashboard",
+   "link_to": "DocPulse",
+   "type": "Dashboard"
+  },
+  {
+   "label": "DocPulse Settings",
+   "link_to": "DocPulse Settings",
+   "type": "DocType"
+  }
+ ],
+ "title": "DocPulse"
+}
